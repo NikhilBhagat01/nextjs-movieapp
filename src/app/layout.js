@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./globals.css";
+import SearchBar from "./components/SearchBar";
 
 export const metadata = {
   title: "Create Next App",
@@ -10,12 +11,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-[#1d1d1d]">
+        <div className="bg-[#1d1d1d] border-b border-gray-600 p-4">
+          <h3 className="text-center text-white font-bold text-4xl">
+            <Link href={"/"}>Home</Link>
+          </h3>
+        </div>
         <main className="max-w-6xl mx-auto">
-          <div>
-            <h3>
-              <Link href={"/"}>Home</Link>
-            </h3>
-          </div>
+          <SearchBar />
           {children}
         </main>
       </body>

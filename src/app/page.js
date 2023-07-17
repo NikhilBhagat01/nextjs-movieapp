@@ -1,13 +1,17 @@
 import Card from "@/app/components/Card";
 
 async function getData() {
-  const res = await fetch("https://yts.mx/api/v2/list_movies.json", {
-    cache: "no-cache",
-  });
+  try {
+    const res = await fetch("https://yts.mx/api/v2/list_movies.json", {
+      cache: "no-cache",
+    });
 
-  const data = await res.json();
+    const data = await res.json();
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log("some error occurred");
+  }
 }
 
 export default async function Home() {
