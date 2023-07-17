@@ -1,7 +1,6 @@
 import Card from "@/app/components/Card";
 
 async function getData() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   const res = await fetch("https://yts.mx/api/v2/list_movies.json", {
     cache: "no-cache",
   });
