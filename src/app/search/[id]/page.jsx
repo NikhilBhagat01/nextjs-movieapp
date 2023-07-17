@@ -11,11 +11,11 @@ const page = async ({ params }) => {
   const single = await getData(params.id);
   console.log(single);
   return (
-    <div className="flex flex-col gap-8 md:flex-row text-white">
-      <div className="w-full md:w-[26%]">
+    <div className="px-3 my-10 flex flex-col gap-8 md:flex-row text-white">
+      <div className="w-full md:w-[26%] flex justify-center md:max-h-96">
         <img src={single?.data?.movie?.medium_cover_image} alt="poster" />
       </div>
-      <div className="w-full md:max-w-2xl flex  flex-col gap-4">
+      <div className="w-full md:max-w-2xl flex  flex-col gap-7">
         <h3 className="text-[#6ac045] text-4xl">
           {single?.data?.movie?.title}
         </h3>
