@@ -29,7 +29,7 @@ const page = async ({ params }) => {
         </p>
         <div className="flex items-center gap-4 flex-wrap">
           {single.data.movie.cast.map((c) => (
-            <div className="flex flex-col items-center gap-2 ">
+            <div key={c.name} className="flex flex-col items-center gap-2 ">
               {
                 <>
                   <img
@@ -45,6 +45,7 @@ const page = async ({ params }) => {
         <div className="flex items-center  gap-3">
           {single.data.movie.torrents.map((torrent) => (
             <a
+              key={torrent.url}
               className="p-2 bg-[#32323a] transition-all duration-300 rounded-md text-white hover:bg-[#6ac045]"
               href={torrent.url}
             >
