@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "../components/Card";
 
-async function getData() {
+async function getData(query) {
   try {
     const res = await fetch(
-      `https://yts.mx/api/v2/list_movies.json?query_term=${searchParams.query}`,
+      `https://yts.mx/api/v2/list_movies.json?query_term=${query}`,
       { cache: "no-cache" }
     );
     const movie = await res.json();
@@ -16,7 +16,7 @@ async function getData() {
 }
 
 const Searchpage = async ({ searchParams }) => {
-  const movie = await getData();
+  const movie = await getData(searchParams.query);
 
   return (
     <div className="my-5 px-3 grid items-center gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
