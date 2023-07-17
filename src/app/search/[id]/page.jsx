@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 async function getData(id) {
   const res = await fetch(
     `https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_cast=true`,
