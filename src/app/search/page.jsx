@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 
-async function getData(query, genre) {
+async function getData(query, genre, page) {
   try {
     const res = await fetch(
       `https://yts.mx/api/v2/list_movies.json?query_term=${query}&genre=${genre}&page=${page}`,
@@ -17,7 +17,6 @@ async function getData(query, genre) {
 }
 
 const Searchpage = async ({ searchParams }) => {
-  console.log(searchParams);
   const movie = await getData(
     searchParams.query,
     searchParams.genre,
