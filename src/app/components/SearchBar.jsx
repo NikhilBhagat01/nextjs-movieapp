@@ -4,20 +4,47 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const SearchBar = () => {
+  const allGenres = [
+    "All",
+    "Action",
+    "Adventure",
+    "Animation",
+    "Biography",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Family",
+    "Fantasy",
+    "Film Noir",
+    "History",
+    "Horror",
+    "Music",
+    "Musical",
+    "Mystery",
+    "Romance",
+    "Sci-Fi",
+    "Short Film",
+    "Sport",
+    "Superhero",
+    "Thriller",
+    "War",
+    "Western",
+  ];
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("");
+  const [genre, setGenre] = useState("");
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/search?query=${query}`);
+    router.push(`/search?query=${query}&genre=${genre}`);
   };
 
   return (
     <div className="bg-[#171717] p-5 md:mx-[-190px]">
       <form
         onSubmit={handleSubmit}
-        className="w-full md:max-w-sm mx-auto flex flex-col md:items-center justify-center md:flex-row  gap-4"
+        className="w-full md:max-w-2xl mx-auto flex flex-col md:items-center justify-center md:flex-row  gap-4"
       >
         <input
           type="text"
@@ -27,17 +54,18 @@ const SearchBar = () => {
           onChange={(e) => setQuery(e.target.value)}
         />
         <label className="text-gray-300" htmlFor="">
-          Genre
+          Genre :
         </label>
         <select
-          name=""
-          id=""
           className="p-2 bg-[#282828] text-gray-200"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+          name="genre"
+          id="gen"
         >
-          <option value="All">all</option>
-          <option value="comedy">comedy</option>
+          {allGenres.map((g, i) => (
+            <option key={i}>{g}</option>
+          ))}
         </select>
         <button
           type="submit"

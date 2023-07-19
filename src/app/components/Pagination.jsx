@@ -1,14 +1,14 @@
 import Link from "next/link";
 import React from "react";
 
-const Pagination = ({ pageNumbers, currentPage, totalPages }) => {
+const Pagination = ({ pageNumbers, currentPage, totalPages, url }) => {
   return (
     <div className="flex items-center justify-center gap-5 md:gap-8 md:text-xl">
       {currentPage - 1 >= 1 && (
         <>
           <Link
             className="hover:text-green-400"
-            href={`/?page=${currentPage - 1}`}
+            href={`${url === "/" ? "?" : url + "&"}page=${currentPage - 1}`}
           >
             {"<<"}
           </Link>
@@ -22,7 +22,8 @@ const Pagination = ({ pageNumbers, currentPage, totalPages }) => {
               : "hover:text-green-400"
           }
           key={page}
-          href={`/?page=${page}`}
+          // href={`/?page=${page}`}
+          href={`${url === "/" ? "?" : url + "&"}page=${page}`}
         >
           {page}
         </Link>
@@ -31,7 +32,7 @@ const Pagination = ({ pageNumbers, currentPage, totalPages }) => {
         <>
           <Link
             className="hover:text-green-400"
-            href={`/?page=${currentPage + 1}`}
+            href={`${url === "/" ? "?" : url + "&"}page=${currentPage + 1}`}
           >
             {">>"}
           </Link>

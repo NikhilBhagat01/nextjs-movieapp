@@ -54,6 +54,7 @@ export default async function Home({ searchParams }) {
           pageNumbers={pageNumbers}
           currentPage={currentPage}
           totalPages={totalPages}
+          url={`/`}
         />
       </div>
     </>
