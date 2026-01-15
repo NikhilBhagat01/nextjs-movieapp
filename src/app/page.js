@@ -5,7 +5,7 @@ import Pagination from "./components/Pagination";
 async function getData(page) {
   try {
     const res = await fetch(
-      `https://yts.mx/api/v2/list_movies.json?page=${page}`,
+      `https://yts.bz/api/v2/list_movies.json?page=${page}`,
       {
         cache: "no-cache",
       }
